@@ -3,7 +3,7 @@
 A multi-process / multithreaded application that will perform matrix-vector multiplication for large matrices and vectors. 
 More precisely, the application will multiply an _n_ x _n_ matrix **M** with a vector **v** of size _n_.
 
-For the purpose of [CS 342 - Operating Systems](http://www.cs.bilkent.edu.tr/~korpe/courses/cs342spring2020/) @ Bilkent Uni.
+*For the purpose of [CS 342 - Operating Systems](http://www.cs.bilkent.edu.tr/~korpe/courses/cs342spring2020/) @ Bilkent Uni.*
 
 ### To Build & Run
 
