@@ -45,7 +45,12 @@ The figure below shows the results:
 ![Figure](figure.png)
 
 Let us consider an example for *MV.C*. Assume we have a 6x6 matix and a vector of size 6 , as follows.
-
+Assume there are 2 mappers. The matrixfile will be partitioned into 2 split
+files. Split 1 file will have the first 11 lines from matrixfile and split 2 file will have
+the remaining 12 lines from matrixfile. The first mapper will process split 1 file and
+the second mapper will process split 2 file. Reducer will read the
+intermediate files and will aggregate the values corresponding to the same row
+numbers, and finally will generate the _resultfile_  
 ```
 Matrix M
 X 1 2 3 4 5 6
@@ -65,9 +70,3 @@ Vector v
 5 0
 6 1
 ```
-Assume there are 2 mappers. The matrixfile will be partitioned into 2 split
-files. Split 1 file will have the first 11 lines from matrixfile and split 2 file will have
-the remaining 12 lines from matrixfile. The first mapper will process split 1 file and
-the second mapper will process split 2 file. Reducer will read the
-intermediate files and will aggregate the values corresponding to the same row
-numbers, and finally will generate the _resultfile_ 
