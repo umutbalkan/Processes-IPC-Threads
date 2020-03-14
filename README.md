@@ -4,6 +4,15 @@
 A multi-process / multithreaded application that will perform matrix-vector multiplication for large matrices and vectors. 
 More precisely, the application will multiply an _n_ x _n_ matrix **M** with a vector **v** of size _n_.
 
+### To Build & Run
+
+```
+$ make
+$ ./mv <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
+$ ./mvp <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
+$ ./mvt <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
+```
+
 ### MV.C - Processes (Matrix-Vector Multiplication) 
 
 The main process reads the _matrixfile_ (which can be quite large) and partitions it into _K_ splits (each split is a file). The partitioning is as follows: 
@@ -29,6 +38,11 @@ Same program using threads this time. There will be _K_ mapper threads and 1 red
 
 
 ### Example - MV.C
+
+The figure below shows the results:
+
+![Figure](figure.png)
+
 Let us consider an example for *MV.C*. Assume we have a 6x6 matix and a vector of size 6 , as follows.
 
 ```
@@ -56,16 +70,3 @@ the remaining 12 lines from matrixfile. The first mapper will process split 1 fi
 the second mapper will process split 2 file. Reducer will read the
 intermediate files and will aggregate the values corresponding to the same row
 numbers, and finally will generate the _resultfile_ 
-
-The figure below shows the results:
-
-![Figure](figure.png)
-
-### To Build & Run
-
-```
-$ make
-$ ./mv <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
-$ ./mvp <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
-$ ./mvt <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
-```
