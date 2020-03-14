@@ -1,4 +1,4 @@
-# Processes, IPC, and Threads
+# Processes, IPC and Threads
 
 A multi-process / multithreaded application that will perform matrix-vector multiplication for large matrices and vectors. 
 More precisely, the application will multiply an _n_ x _n_ matrix **M** with a vector **v** of size _n_.
