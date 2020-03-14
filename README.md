@@ -58,3 +58,4 @@ numbers, and finally will generate the _resultfile_
 
 The figure below shows the results:
 
+![Figure](figure.png)
