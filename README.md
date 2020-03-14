@@ -8,15 +8,16 @@ More precisely, the application will multiply an _n_ x _n_ matrix **M** with a v
 
 The main process reads the _matrixfile_ (which can be quite large) and partitions it into _K_ splits (each split is a file). The partitioning is as follows: 
 
-Assume there are _L_ values (lines) in _matrixfile_. Then the first split will contain the first _s_ = _L_ / _K_ (integer division, i.e., _L_ div _K_ ) values from the _matrixfile_ 
+Assume there are _L_ values (lines) in _matrixfile_. 
+the first split contains the first _s_ = _L_ / _K_ (integer division, i.e., _L_ div _K_ ) values
 
 After generating the split files, the main process creates _K_ child processes to process (map) the split files. These child processes will be called as **mapper processes** (mappers). Mappers runs and process their splits concurrently.
 
-each mapper creates a partial result for the multiplication and writes out the partial result array into an intermediate output file
+> Each mapper creates a partial result for the multiplication and writes out the partial result array into an intermediate output file
 
-When all mappers finish, a *reducer process* (another child) started by the main process. 
+When all mappers finish, a **reducer process** (another child) started by the main process. 
 
-The reducer process opens and read and process the intermediate files produced by the mappers. It reads the intermediate files and sumsup the respective values corresponding to the same vector index. At the end, the result vector can be obtained (after processing all input files). The result vector will be printed out to the _resultfile_ in sorted order with respect to row numbers.
+ > The reducer process opens and read and process the intermediate files produced by the mappers. It reads the intermediate files and sums up the respective values corresponding to the same vector index. At the end, the result vector can be obtained (after processing all input files). The result vector will be printed out to the _resultfile_ in sorted order with respect to row numbers.
 
 ### MVP.C - IPC (with pipes)
 
@@ -59,3 +60,12 @@ numbers, and finally will generate the _resultfile_
 The figure below shows the results:
 
 ![Figure](figure.png)
+
+### To Build & Run
+
+```
+make
+./mv <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
+./mvp <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
+./mvt <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
+```
