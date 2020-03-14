@@ -64,8 +64,8 @@ The figure below shows the results:
 ### To Build & Run
 
 ```
-make
-./mv <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
-./mvp <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
-./mvt <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
+$ make
+$ ./mv <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
+$ ./mvp <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
+$ ./mvt <matrixfile.txt> <vectorfile.txt> <result.txt> <number>
 ```
